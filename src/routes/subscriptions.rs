@@ -20,8 +20,6 @@ pub async fn subscribe(form: web::Form<FormData>, pool: web::Data<PgPool>) -> Ht
         form.name,
         Utc::now()
     )
-    // We use `get_ref` to get an immutable reference to the `PgConnection`
-    // wrapped by `web::Data`.
     .execute(pool.get_ref())
     .await
     {
