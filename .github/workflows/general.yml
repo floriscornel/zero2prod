@@ -20,7 +20,8 @@ jobs:
           - 5433:5432
     env:
       SQLX_VERSION: 0.5.11
-      SQLX_FEATURES: postgres
+      SQLX_FEATURES: native-tls,postgres
+      SQLX_CACHE_KEY: native-tls_postgres
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -46,7 +47,7 @@ jobs:
         with:
           path: |
             ~/.cargo/bin/sqlx
-          key: ${{ runner.os }}-sqlx-${{ env.SQLX_VERSION }}-${{ env.SQLX_FEATURES }}
+          key: ${{ runner.os }}-sqlx-${{ env.SQLX_VERSION }}-${{ env.SQLX_CACHE_KEY }}
 
       - name: Install sqlx-cli 
         uses: actions-rs/cargo@v1
@@ -98,7 +99,8 @@ jobs:
           - 5433:5432
     env:
       SQLX_VERSION: 0.5.11
-      SQLX_FEATURES: postgres
+      SQLX_FEATURES: native-tls,postgres
+      SQLX_CACHE_KEY: native-tls_postgres
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -116,7 +118,7 @@ jobs:
         with:
           path: |
             ~/.cargo/bin/sqlx
-          key: ${{ runner.os }}-sqlx-${{ env.SQLX_VERSION }}-${{ env.SQLX_FEATURES }}
+          key: ${{ runner.os }}-sqlx-${{ env.SQLX_VERSION }}-${{ env.SQLX_CACHE_KEY }}
 
       - name: Install sqlx-cli 
         uses: actions-rs/cargo@v1
@@ -154,7 +156,8 @@ jobs:
           - 5433:5432
     env:
       SQLX_VERSION: 0.5.11
-      SQLX_FEATURES: postgres
+      SQLX_FEATURES: native-tls,postgres
+      SQLX_CACHE_KEY: native-tls_postgres
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -171,7 +174,7 @@ jobs:
         with:
           path: |
             ~/.cargo/bin/sqlx
-          key: ${{ runner.os }}-sqlx-${{ env.SQLX_VERSION }}-${{ env.SQLX_FEATURES }}
+          key: ${{ runner.os }}-sqlx-${{ env.SQLX_VERSION }}-${{ env.SQLX_CACHE_KEY }}
 
       - name: Install sqlx-cli 
         uses: actions-rs/cargo@v1
