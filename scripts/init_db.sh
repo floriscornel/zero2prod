@@ -25,15 +25,15 @@ DB_NAME="${POSTGRES_DB:=newsletter}"
 DB_PORT="${POSTGRES_PORT:=5433}"
 # Launch postgres using Docker
 if [[ -z "${SKIP_DOCKER}" ]]
-  then
-    docker run \
-      -e POSTGRES_USER=${DB_USER} \
-      -e POSTGRES_PASSWORD=${DB_PASSWORD} \
-      -e POSTGRES_DB=${DB_NAME} \
-      -p "${DB_PORT}":5432 \
-      -d postgres \
-      postgres -N 1000
-      # ^ Increased maximum number of connections for testing purposes
+then
+  docker run \
+    -e POSTGRES_USER=${DB_USER} \
+    -e POSTGRES_PASSWORD=${DB_PASSWORD} \
+    -e POSTGRES_DB=${DB_NAME} \
+    -p "${DB_PORT}":5432 \
+    -d postgres \
+    postgres -N 1000
+    # ^ Increased maximum number of connections for testing purposes
 fi
 
 # Keep pinging Postgres until it's ready to accept commands
